@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AuthenticatorDesktop.MainPage">
+    <ScrollView>
+        <StackLayout x:Name="view">
+            <VerticalStackLayout
+                Padding="30,30,30,30"
+                Spacing="10">
+                <Label
+                    x:Name="totpName"
+                    SemanticProperties.Description="Time-based One-Time Password (Accont)" />
+                <Frame BorderColor="Gray" x:Name="totpContainer">
+                    <FlexLayout Direction="Row" JustifyContent="SpaceBetween" AlignItems="Center"
+                        HeightRequest="60">
+                        <FlexLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="2"
+                                Tapped="CopyCodeToClipboard" />
+                        </FlexLayout.GestureRecognizers>
+                        <Label
+                            Text="Loading..."
+                            Padding="30,0,0,0"
+                            HorizontalOptions="Start"
+                            Style="{StaticResource SubHeadline}"
+                            SemanticProperties.HeadingLevel="Level2"
+                            SemanticProperties.Description="Time-based One-Time Password (Code)"
+                            x:Name="totp">
+                            <FlexLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="2"
+                                    Tapped="CopyCodeToClipboard" />
+                            </FlexLayout.GestureRecognizers>
+                        </Label>
+                        <Label
+                            Text=""
+                            Padding="0,0,30,0"
+                            HorizontalOptions="End"
+                            Style="{StaticResource SubHeadline}"
+                            SemanticProperties.HeadingLevel="Level2"
+                            SemanticProperties.Description="Time-based One-Time Password (Timer)"
+                            x:Name="totpTimer">
+                        </Label>
+                    </FlexLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
